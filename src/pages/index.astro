@@ -1,5 +1,17 @@
 ---
 const tituloPagina = "Pagina Inicial";
+
+const detalhes = {
+  nome: "Wak'Oleva Maia",
+  linkProfile: {
+	twitter: "https://www.x.com/wakmaia",
+	linkedin:"https://www.linkedin.com/in/wak-oleva-maia-4b68b7194/"
+			  } ,
+  ocupacao: "Dev",
+  hobbies: ["memes", "coding", "volei"],
+};
+
+const habilidades = ["HTML", "CSS", "JavaScript", "React", "Astro", "Escrever Documentação"];
 ---
 
 <html lang="pt-BR">
@@ -8,11 +20,59 @@ const tituloPagina = "Pagina Inicial";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{tituloPagina}</title>
+
+		<style>
+			.section1 {
+				justify-content: center;
+			}
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+			.navbar{
+				display: inline;
+				justify-content: flex-end;
+				word-spacing: 50px ;
+			}
+			a{
+				text-decoration: none;
+			}
+		</style>
 	</head>
 	<body>
-		<a href="/">Início</a>
-		<a href="/sobre/">Sobre</a>
-		<a href="/blog/">Blog</a>
-		<h1>Meu Site Astro</h1>
+
+		<nav>
+			<div class="navbar">
+				<div>
+					<a href="/">Início</a>
+				</div>
+				<div>
+					<a href="/jobs/">Projectos</a>
+				</div>
+				<div>
+					<a href="/blog/">Blog</a>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="section1">
+			<h2>{tituloPagina}</h2>
+			<h3>{detalhes.nome}</h3>
+			<h4>Bio</h4>
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
+				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, <br>
+				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			</p>
+			<p>Siga-me nas redes sociais: </p>
+			<p> <a href={detalhes.linkProfile.linkedin}> LinkedIn </a></p>
+			<p> <a href={detalhes.linkProfile.twitter}> Twitter </a></p>
+			<p>Minhas habilidades são:</p>
+			<ul>
+			{habilidades.map((habilidade) => <li class="habilidade">{habilidade}</li>)}
+			</ul>
+
+		</div>
+		
 	</body>
 </html>
